@@ -1,0 +1,158 @@
+
+
+
+
+
+<mat-dialog-content class="aboutDialog" >
+  <mat-dialog-actions align="end">
+    
+    <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+</mat-dialog-actions>
+
+<div class="container" >  
+  <form id="contact"  [formGroup]="CreateForm">
+    <fieldset>
+      <input formControlName="description"  placeholder="Enter the description" type="text" tabindex="1" required autofocus>
+      <mat-error *ngIf="CreateForm.controls['description'].hasError('required')">
+        description is <strong>required</strong>
+      </mat-error>
+  </fieldset>
+  <fieldset>
+    <input formControlName="email" placeholder="Enter the email" type="text" tabindex="1" required autofocus>
+    <mat-error *ngIf="CreateForm.controls['email'].hasError('email') && !CreateForm.controls['email'].hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+</fieldset>
+
+
+<fieldset>
+  <input formControlName="phonenumber"  placeholder="Enter the phonenumber" type="text" tabindex="1" required autofocus>
+  <mat-error *ngIf="CreateForm.controls['phonenumber'].hasError('required')">
+    phonenumber is <strong>required</strong>
+  </mat-error>
+</fieldset>
+
+<fieldset>
+  <input formControlName="location"  placeholder="Enter the location" type="text" tabindex="1" required autofocus>
+  <mat-error *ngIf="CreateForm.controls['location'].hasError('required')">
+    phonenumber is <strong>required</strong>
+  </mat-error>
+</fieldset>
+
+    <fieldset>
+      <li>
+        <input type="file" #file placeholder="Choose Image" 
+        formControlName="image" (change)="uploadImage(file.files)" 
+        style="display: none;">
+        <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+
+    </li>    
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div> 
+
+
+
+<!-- <form [formGroup]="CreateForm" id="contact" action="" method="post">
+  <fieldset>
+    <input placeholder="Your description" type="text" tabindex="1" formControlName="description" required autofocus>
+  </fieldset>
+  <fieldset>
+    <input placeholder="Your email" type="url" tabindex="4" formControlName="email" required>
+  </fieldset>
+  <fieldset>
+    <input placeholder="Your phonenumber" type="text" tabindex="2" formControlName="phonenumber" required>
+  </fieldset>
+  <fieldset>
+    <input placeholder="Your location" type="text" tabindex="2" formControlName="location" required>
+  </fieldset>
+  
+  <fieldset>
+    <li>
+      <input type="file" #file placeholder="Choose Image" 
+      formControlName="image" (change)="uploadImage(file.files)" 
+      style="display: none;">
+      <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+
+  </li>    
+  </fieldset>
+  <fieldset>
+    <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+  </fieldset>
+</form>
+ -->
+
+
+
+
+
+
+
+    <!-- <form [formGroup]="CreateForm" class="example-form">
+        <ul>
+            <li>
+
+              
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the description </mat-label>
+          <input type="text" matInput formControlName="description" placeholder="description">
+          <mat-error *ngIf="CreateForm.controls['description'].hasError('required')">
+            description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+</li>
+<li>
+
+              
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter the email </mat-label>
+      <input type="text" matInput formControlName="email" placeholder="email">
+      <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+        email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</li>
+<li>
+
+              
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter the phonenumber </mat-label>
+      <input type="text" matInput formControlName="phonenumber" placeholder="phonenumber">
+      <mat-error *ngIf="CreateForm.controls['phonenumber'].hasError('required')">
+        phonenumber is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</li>
+
+<li>
+
+              
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Enter the location </mat-label>
+    <input type="text" matInput formControlName="location" placeholder="location">
+    <mat-error *ngIf="CreateForm.controls['location'].hasError('required')">
+      location is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</li>
+
+
+
+        <li>
+            <input type="file" #file placeholder="Choose Image" 
+            formControlName="image" (change)="uploadImage(file.files)" 
+            style="display: none;">
+            <button id="btnmy" class="button" (click)="file.click()" >Upload Image</button>
+        </li>
+        </ul>
+      </form> -->
+
+</mat-dialog-content>
+
+

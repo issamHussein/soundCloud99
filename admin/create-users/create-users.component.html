@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>create users</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="CreateForm" class="example-form">
+        <ul>
+            <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the userName </mat-label>
+          <input type="text" matInput formControlName="userName" placeholder="userName">
+          <mat-error *ngIf="CreateForm.controls['userName'].hasError('required')">
+            userName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+</li>
+<li>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter the email </mat-label>
+      <input type="text" matInput formControlName="email" placeholder="email">
+      <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+        email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</li>
+<li>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Enter the password </mat-label>
+    <input type="password" matInput formControlName="password" placeholder="password">
+    <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
+      password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</li>
+<li>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter the phoneNumber </mat-label>
+      <input type="text" matInput formControlName="phoneNumber" placeholder="phoneNumber">
+      <mat-error *ngIf="CreateForm.controls['phoneNumber'].hasError('required')">
+        phoneNumber is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</li>
+<li>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter the roleID </mat-label>
+      <input type="number" matInput formControlName="roleID" placeholder="roleID">
+      <mat-error *ngIf="CreateForm.controls['roleID'].hasError('required')">
+        roleID is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+</li>
+<li>
+  <input type="file" #file placeholder="Choose song" formControlName="image"
+   (change)="uploadImage(file.files)"
+    style="display: none;">
+  <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+</li>
+        </ul>
+      </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button  mat-button [mat-dialog-close]="true"(click)="save()"  cdkFocusInitial>Save</button>
+</mat-dialog-actions>

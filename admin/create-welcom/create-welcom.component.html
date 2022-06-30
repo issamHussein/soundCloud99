@@ -1,0 +1,90 @@
+<mat-dialog-content class="mat-typography">
+
+  <mat-dialog-actions align="end">
+     
+
+    <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+</mat-dialog-actions>
+
+
+<!-- 
+<div class="container" >  
+
+<form  [formGroup]="CreateForm" >
+  <fieldset>
+    <input placeholder="Your description" type="text" tabindex="1" formControlName="Description" required autofocus>
+    <mat-error *ngIf="CreateForm.controls['Description'].hasError('required')">
+      Description is <strong>required</strong>
+    </mat-error>
+  </fieldset>
+
+
+  <fieldset>
+    <input placeholder="Your text" type="text" tabindex="4" formControlName="text" required>
+  </fieldset>
+
+
+  <fieldset>
+    <input placeholder="Your text2" type="text" tabindex="2" formControlName="text2" required>
+  </fieldset>
+  
+  <fieldset>
+    <li>
+      <input type="file" #file placeholder="Choose Image" 
+      formControlName="image1" (change)="uploadImage(file.files)" 
+      style="display: none;">
+      <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+  </li>    
+  </fieldset>
+
+
+  <fieldset>
+    <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+  </fieldset>
+</form>
+</div> -->
+
+
+
+<div class="container" >  
+  <form id="contact"  [formGroup]="CreateForm">
+    <fieldset>
+      <input formControlName="Description" placeholder="Your description" type="text" tabindex="1" required autofocus>
+      <mat-error *ngIf="CreateForm.controls['Description'].hasError('required')">
+        Description is <strong>required</strong>
+      </mat-error>
+  </fieldset>
+
+
+
+
+  <fieldset>
+    <input formControlName="text" placeholder="Your text" type="text" tabindex="2" required autofocus>
+</fieldset>
+
+
+<fieldset>
+  <input formControlName="text2" placeholder="Your text" type="text" tabindex="3" required autofocus>
+</fieldset>
+
+
+
+
+
+    <fieldset>
+      <li>
+        <input type="file" #file placeholder="Choose Image" 
+        formControlName="image" (change)="uploadImage(file.files)" 
+        style="display: none;">
+        <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+
+    </li>    
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div> 
+
+
+</mat-dialog-content>

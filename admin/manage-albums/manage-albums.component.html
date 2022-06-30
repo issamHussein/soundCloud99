@@ -1,0 +1,160 @@
+<app-dashboared></app-dashboared>
+
+
+
+
+<div class="container">
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th class="text-left">description </th>
+    <th class="text-left">image</th>
+    <th class="text-left">Oprations</th>
+  </tr>
+  <tr>
+    <tr >
+          <td class="text-left">  {{welcomeServive.data[2].description}}</td>
+          <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[2].image1}}" style="height: 150px;width:150px;"></td>
+
+          <td class="text-left">
+            <button class="button" (click)="openUpdateDailog(welcomeServive.data[2].homeId,
+            welcomeServive.data[2].description,welcomeServive.data[2].text,welcomeServive.data[2].text2, welcomeServive.data[2].image1, welcomeServive.data[2].slider1
+            )">Update</button>
+
+          </td>
+      
+      
+</tr>
+<tr>
+  <tr >
+        <td class="text-left">  {{welcomeServive.data[3].description}}</td>
+        <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[3].image1}}" style="height: 150px;width:150px;"></td>
+
+        <td class="text-left">
+          <button class="button" (click)="openUpdateDailog(welcomeServive.data[3].homeId,
+          welcomeServive.data[3].description,welcomeServive.data[3].text,welcomeServive.data[3].text2, welcomeServive.data[3].image1, welcomeServive.data[3].slider1
+          )">Update</button>
+
+        </td>
+    
+    
+</tr>
+<tr>
+<tr >
+      <td class="text-left">  {{welcomeServive.data[6].description}}</td>
+      <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[6].image1}}" style="height: 150px;width:150px;"></td>
+
+      <td class="text-left">
+        <button class="button" (click)="openUpdateDailog(welcomeServive.data[6].homeId,
+        welcomeServive.data[6].description,welcomeServive.data[6].text,welcomeServive.data[6].text2, welcomeServive.data[6].image1, welcomeServive.data[6].slider1
+        )">Update</button>
+
+      </td>
+  
+  
+</tr>
+<tr>
+<tr >
+      <td class="text-left">  {{welcomeServive.data[5].description}}</td>
+      <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[7].image1}}" style="height: 150px;width:150px;"></td>
+
+      <td class="text-left">
+        <button class="button" (click)="openUpdateDailog(welcomeServive.data[7].homeId,
+        welcomeServive.data[5].description,welcomeServive.data[7].text,welcomeServive.data[7].text2, welcomeServive.data[7].image1, welcomeServive.data[7].slider1
+        )">Update</button>
+
+      </td>
+  
+  
+</tr>
+<tr>
+<tr >
+      <td class="text-left">  {{welcomeServive.data[9].description}}</td>
+      <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[8].image1}}" style="height: 150px;width:150px;"></td>
+
+      <td class="text-left">
+        <button class="button" (click)="openUpdateDailog(welcomeServive.data[8].homeId,
+        welcomeServive.data[9].description,welcomeServive.data[8].text,welcomeServive.data[8].text2, welcomeServive.data[8].image1, welcomeServive.data[8].slider1
+        )">Update</button>
+
+      </td>
+  
+  
+</tr>
+<tr>
+<tr >
+      <td class="text-left">  {{welcomeServive.data[11].description}}</td>
+      <td class="text-left"><img src="../../../assets/img/{{welcomeServive.data[11].image1}}" style="height: 150px;width:150px;"></td>
+
+      <td class="text-left">
+        <button class="button" (click)="openUpdateDailog(welcomeServive.data[11].homeId,
+        welcomeServive.data[11].description,welcomeServive.data[11].text,welcomeServive.data[11].text2, welcomeServive.data[11].image1, welcomeServive.data[11].slider1
+        )">Update</button>
+
+      </td>
+  
+  
+</tr>
+  
+</table>
+</div><br /><br />
+
+
+
+
+<ng-template #callUpdateDailog>
+
+    <mat-dialog-actions align="end">
+     
+
+        <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+
+    <form [formGroup]="UpdateForm" id="contact" action="" method="post">
+      <!-- <h3>Colorlib Contact Form</h3>
+      <h4>Contact us for custom quote</h4> -->
+      <fieldset>
+        <input formControlName="description" placeholder="Your description" type="text" tabindex="1" required autofocus [(ngModel)]="welcomObj.description"> 
+        <mat-error *ngIf="UpdateForm.controls['description'].hasError('required')">
+          description is <strong>required</strong>
+        </mat-error>
+
+
+      </fieldset>
+      
+      <fieldset>
+        <li>
+          <input type="file" #file placeholder="Choose Image" 
+          formControlName="image1"   [(ngModel)]="welcomObj.image1" (change)="uploadImage(file.files)"
+          style="display: none;">
+          <button (click)="file.click()" class="btnm ">Upload Image</button>
+ 
+      </li>    
+
+      
+      </fieldset>
+      <fieldset>
+        <button name="submit"  (click)="update()" type="submit"  id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
+    </form>
+
+
+
+
+
+
+</ng-template>
+
+<ng-template #callDeleteDailog>
+    <mat-dialog-actions align="end">
+       
+    
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    
+    <span id="mydele">Are you sure you want to delete this item?</span>
+    <div>
+         <button class="button" mat-button mat-dialog-close="no">No</button>
+        <button class="button" mat-button mat-dialog-close="yes">yes</button>
+    </div>
+    </ng-template>

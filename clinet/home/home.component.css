@@ -1,0 +1,49 @@
+/* login btn */
+.loginbutton1{
+  
+  border: 1px solid var(--text-primary);
+  margin-left: 35%;  font-size: 22px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 8px 16px;
+  height: 47px;
+  line-height: 26px;
+  background-image: linear-gradient(to right,#e1418c,#d6379b,#c732ab,#b035bc,#913ccd);
+  border-radius: 20px;
+  color:white
+  }
+
+  
+  /* .loginbutton1:hover{
+      background: linear-gradient(90deg,#0093fe 0%,#5fd2cb 100%);  } */
+  #logo{
+    white-space: nowrap;
+    height: 68px;
+    margin-left: -13px;
+    margin-top: -73px;
+    padding: 8px 16px;
+    margin-bottom: -40px;
+
+}
+
+a.nav-link.scrollto.active {
+  display: inline;
+  position: fixed;
+  height: 60px;
+}
+
+.ng-star-inserted {
+  display: inline;
+  position: absolute;
+  right: 65px;
+  top: 40px;
+}
+.nav-profile-image {
+  display: inline;
+}
+
+.nameStrong{
+  position: absolute;
+    right: 20px;
+    top: 85px;
+}

@@ -1,0 +1,91 @@
+
+   .about {
+    padding: 10px 0;
+  overflow: hidden;
+    
+}
+
+.display_boxflex {
+
+    background: #e596c21c 0 0 no-repeat padding-box;
+    border: 1px solid #38333608;
+    border-radius: 16px;
+    min-width: 450px;
+    padding: 2em 4em 4em;
+    text-align: center;
+}
+.about .about-box {
+    text-align: center;
+    padding-bottom: 30px;
+   
+}
+.about .about-box h2 {
+    font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+
+}
+
+.about-box h2::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+.about-box h2::after {
+    content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #d4369c;
+  bottom: 0;
+  left: calc(50% - 20px);
+
+}
+.about .about-box p {
+    font-size: 17px;
+    line-height: 28px;
+    color: #000;
+    padding: 35px 0px;
+}
+
+.about .about-box a {
+    font-size: 16px;
+border: #000 solid 1px;
+background-color: #000;
+color: #fff;
+padding: 9px 0px;
+max-width: 171px;
+width: 100%;
+display: inline-block;
+text-align: center;
+border-radius: 30px;
+}
+
+
+.about .about-box a:hover{ 
+    background-color: #0ed1f0;
+    border: #0ed1f0 solid 1px;
+   color: #fff;
+}
+.about .about-box figure {
+    margin: 0;
+}
+.about .about-box figure img {
+   width: 100%;}
+
+   .aboutus{
+      font-size: 20px;
+      line-height: 1.6;
+  
+   }

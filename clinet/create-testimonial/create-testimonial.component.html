@@ -1,0 +1,94 @@
+
+
+<mat-dialog-content class="testDialog">
+
+    <mat-dialog-actions align="end">
+     
+
+        <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    
+    <div class="content">
+        <!-- <div class="container"> -->
+            <!-- <div class="close">
+                <div class="s s1"></div>
+                <div class="s s2"></div>
+              </div> -->
+
+            
+          <div class="head">
+            
+            <div class="heading">
+              <h1>Share your experience</h1>
+            </div>
+            
+          </div>
+          <div class="mid">
+            <div class="media"><img class="face" src="https://cdn-icons-png.flaticon.com/128/3260/3260838.png" alt="angry"></div>
+            <div class="media"><img class="face" src="https://cdn-icons-png.flaticon.com/128/42/42901.png" alt="moderate"></div>
+            <div class="media"><img class="face" src="https://cdn-icons-png.flaticon.com/128/3260/3260877.png" alt="neutral"></div>
+            <div class="media"><img class="face" src="https://cdn-icons-png.flaticon.com/128/569/569501.png" alt="smile" ></div>
+            <div class="media"><img class="face active" src="https://cdn-icons-png.flaticon.com/128/1356/1356639.png" alt="happy"></div>
+          </div>
+          <div class="textarea">
+            <p>Share your experience</p>
+            <form [formGroup]="CreateForm">
+
+            <textarea name="exp" id="exp" formControlName="message"  placeholder="Let we know..."></textarea>
+            </form>
+          </div>
+          <div class="end">
+            <div class="submission" *ngFor="let obj of userService.user">
+              <button class="sub btn" (click)="save(obj.userID)"  >Send</button>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <h2>give us your opinion</h2>
+
+    <form [formGroup]="CreateForm" class="example-form">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>give us your opinion </mat-label>
+                    <input type="text" matInput formControlName="message" placeholder="message">
+                    <mat-error *ngIf="CreateForm.controls['message'].hasError('required')">
+                        message is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li> -->
+
+            <!-- <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>userID </mat-label>
+                    <input type="number" matInput formControlName="userID" placeholder="message">
+                    <mat-error *ngIf="CreateForm.controls['userID'].hasError('required')">
+                        userID is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li> -->
+
+<!-- 
+        </ul>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <div *ngFor="let obj of userService.user">
+    <button mat-button  [mat-dialog-close]="true" (click)="save(obj.userID   )"
+        cdkFocusInitial>Save</button>
+    </div> -->
+<!-- </mat-dialog-actions> -->

@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<div *ngIf="userRole!='user'">
+
+<div style=" background:white " >
+    <button mat-button class="loginbutton1" (click)="logindailog()">
+   Login</button>
+</div>
+</div>
+
+
+
+   <a (click)="SoundDownloadedByTheUser(userService.user[0].userID)">
+<div *ngIf="userRole=='user'">
+   <div class="nav-profile-image"  >
+    <img src="../../../assets/img/{{userService.user[0].image}}" alt="profile" style=" width: 75px;
+    height: 75px ;     border-radius: 100%;
+  " />
+  </div>
+<strong class="nameStrong">{{userService.user[0].userName}}</strong>
+</div>
+
+</a>
+  
+   <a  href="#" class="nav-link scrollto active"> 
+      <img [src]="logo" alt="" id="logo">
+     <p style="font-family: cursive; font-weight: bolder; color: #17a2f2;margin-left: -9px;" >SoundCloud</p> 
+   </a>
+
+
+<app-header></app-header>
+
+<app-welcome></app-welcome>
+<br>
+<br>
+<app-top10></app-top10>
+<app-aboutus></app-aboutus>
+<br>
+<br>
+<app-library></app-library>
+<br>
+<br>
+
+<app-user-library></app-user-library>
+<app-testimonial></app-testimonial>
+<br>
+<br>
+<app-contactus></app-contactus>
+<app-our-team></app-our-team>
+<app-footer></app-footer>

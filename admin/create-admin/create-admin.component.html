@@ -1,0 +1,77 @@
+
+<mat-dialog-content class="mat-typography">
+
+
+  <mat-dialog-actions align="end">
+     
+
+    <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+</mat-dialog-actions>
+
+
+<div class="container" >  
+  <form id="contact"  [formGroup]="CreateForm">
+    <fieldset>
+      <input formControlName="AdminName" placeholder="Enter the AdminName" type="text" tabindex="1" required autofocus>
+      <mat-error *ngIf="CreateForm.controls['AdminName'].hasError('required')">
+        AdminName is <strong>required</strong>
+      </mat-error>
+  </fieldset>
+
+
+
+
+    <fieldset>
+      <input formControlName="email" placeholder="Your Email Address" type="email" tabindex="2" required>
+      <mat-error *ngIf="CreateForm.controls['email'].hasError('email') && !CreateForm.controls['email'].hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+
+    </fieldset>
+
+
+
+
+
+
+
+
+    <fieldset>
+      <input formControlName="Password" placeholder="Your password" type="password" tabindex="3" required>
+      <mat-error *ngIf="CreateForm.controls['Password'].hasError('minlength') && !CreateForm.controls['Password'].hasError('required')">
+        Please enter strong password
+      </mat-error>
+      <mat-error *ngIf="CreateForm.controls['Password'].hasError('required')">
+        password is <strong>required</strong>
+      </mat-error>
+
+    </fieldset>
+
+
+    <fieldset>
+      <li>
+        <input type="file" #file placeholder="Choose Image" 
+        formControlName="image" (change)="uploadImage(file.files)" 
+        style="display: none;">
+        <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+
+    </li>    
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div> 
+
+
+
+
+
+
+
+
+
+

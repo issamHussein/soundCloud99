@@ -1,0 +1,153 @@
+<mat-dialog-content class="SoundDialog">
+
+
+
+  <mat-dialog-actions align="end">
+     
+
+    <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+</mat-dialog-actions>
+
+
+<div class="container" >  
+  <form id="contact"  [formGroup]="CreateForm">
+    <fieldset>
+      <input formControlName="soundName" placeholder="Enter the soundName" type="text" tabindex="1" required autofocus>
+      <mat-error *ngIf="CreateForm.controls['soundName'].hasError('required')">
+        Sound Name is <strong>required</strong>
+      </mat-error>
+</fieldset>
+
+
+
+
+    <fieldset>
+      <input formControlName="publishDate" placeholder="publishDate" type="date" tabindex="2" required>
+      <mat-error *ngIf="CreateForm.controls['publishDate'].hasError('required')">
+        Publish Date is <strong>required</strong>
+      </mat-error>
+    </fieldset>
+
+
+    <fieldset>
+      <input formControlName="categoryID" placeholder="categoryID" type="number" tabindex="3" required>
+      <mat-error *ngIf="CreateForm.controls['categoryID'].hasError('required')">
+        categoryID is <strong>required</strong>
+      </mat-error>
+
+    </fieldset>
+
+
+
+
+    <fieldset>
+      <input type="file" #file placeholder="Choose image" formControlName="image"
+      (change)="uploadImage(file.files)"
+       style="display: none;">
+     <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+    </fieldset>
+
+
+
+
+    <fieldset>
+      <li>
+        <input type="file" #files placeholder="Choose song" 
+        formControlName="song" (change)="uploadSong(files.files)" 
+        style="display: none;">
+        <button (click)="files.click()" class="btn btn-success">Upload song</button>
+
+    </li>    
+    </fieldset>
+
+
+
+
+
+
+
+
+
+    <fieldset>
+      <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <form [formGroup]="CreateForm" class="example-form">
+    <ul>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the sound Name </mat-label>
+          <input type="text" matInput formControlName="soundName" placeholder="soundName">
+          <mat-error *ngIf="CreateForm.controls['soundName'].hasError('required')">
+            soundName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <input type="file" #file placeholder="Choose song" formControlName="image"
+         (change)="uploadImage(file.files)"
+          style="display: none;">
+        <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+      </li>
+      
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the description </mat-label>
+          <input type="text" matInput formControlName="description" placeholder="description">
+          <mat-error *ngIf="CreateForm.controls['description'].hasError('required')">
+            description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the sound publishDate </mat-label>
+          <input type="date" matInput formControlName="publishDate" placeholder="publishDate">
+          <mat-error *ngIf="CreateForm.controls['publishDate'].hasError('required')">
+            publishDate is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the categoryID </mat-label>
+          <input type="number" matInput formControlName="categoryID" placeholder="categoryID">
+          <mat-error *ngIf="CreateForm.controls['categoryID'].hasError('required')">
+            categoryID is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+
+
+
+
+
+      <li>
+        <input type="file" #files placeholder="Choose song" formControlName="song"
+         (change)="uploadSong(files.files)"
+          style="display: none;">
+        <button (click)="files.click()" class="btn btn-success">Upload song </button>
+      </li>
+
+
+
+    </ul>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="button" mat-button mat-dialog-close>Cancel</button>
+  <button class="button" mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+</mat-dialog-actions> -->

@@ -1,0 +1,233 @@
+<app-dashboared></app-dashboared>
+
+
+<div class="container">
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th class="text-left">description </th>
+    <th class="text-left">Image</th>
+    <th class="text-left">email</th>
+    <th class="text-left">phonenumber</th>
+    <th class="text-left">location</th>
+
+    <th class="text-left">Oprations</th>
+  </tr>
+  <tr>
+      <tr    *ngFor="let obj of aboutService.data"     >
+            <td class="text-left">  {{obj.description}}</td>
+            <td class="text-left"><img src="../../../assets/img/{{obj.image}}" style="height: 100px; width:100px;"></td>
+            <td class="text-left">  {{obj.email}}</td>
+            <td class="text-left">  {{obj.phonenumber}}</td>
+            <td class="text-left">  {{obj.location}}</td>
+
+            <td class="text-left">
+                <button class="button" (click)="openUpdateDailog(obj.aboutusID,
+                obj.description,obj.image,obj.email, obj.phonenumber, obj.location
+              )">Update</button>
+    
+                <button class="button" (click)="openDeleteDailog(obj.aboutusID)">Delete</button>
+        
+        </td>
+  </tr>
+  
+</table>
+</div><br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <h1 >about us</h1>
+
+<button class="btn" style="padding-right: 5px;" (click)="create()">Create</button>
+<div   style="overflow-x:auto;">
+    <table class="table-fill"  >
+        <thead>
+        <tr>
+        <th class="text-left">description </th>
+        <th class="text-left">Image</th>
+        <th class="text-left">email</th>
+        <th class="text-left">phonenumber</th>
+        <th class="text-left">Oprations</th>
+    
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <tr    *ngFor="let obj of aboutService.data"     >
+            <td class="text-left"><img src="../../../assets/img/{{obj.image}}" style="height: 150px;width:150px;"></td>
+            <td class="text-left">  {{obj.description}}</td>
+            <td class="text-left">  {{obj.email}}</td>
+            <td class="text-left">  {{obj.phonenumber}}</td>
+    
+            <td class="text-left">
+                <button class="button" (click)="openUpdateDailog(obj.aboutusID,
+                obj.description,obj.image,obj.email, obj.phonenumber
+                )">Update</button>
+    
+                <button class="button" (click)="openDeleteDailog(obj.aboutusID)">Delete</button>
+        
+        </td>
+        </tr>
+        
+        </tbody>
+        </table>
+</div>
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #callUpdateDailog>
+    <mat-dialog-actions align="end">
+       
+    
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    
+
+
+     <form [formGroup]="UpdateForm" id="contact" action="" method="post">
+        <fieldset>
+          <input placeholder="Your description" type="text" tabindex="1" required autofocus formControlName="description" [(ngModel)]="aboutUsObj.description">
+          <mat-error *ngIf="UpdateForm.controls['description'].hasError('required')">
+            description is <strong>required</strong>
+          </mat-error>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your email" type="text" tabindex="4" required   formControlName="email" [(ngModel)]="aboutUsObj.email">
+          <mat-error *ngIf="UpdateForm.controls['email'].hasError('email') && !UpdateForm.controls['email'].hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your phonenumber" type="email" tabindex="2" required formControlName="phonenumber" [(ngModel)]="aboutUsObj.phonenumber">
+          <mat-error *ngIf="UpdateForm.controls['phonenumber'].hasError('required')">
+            phonenumber is <strong>required</strong>
+          </mat-error>
+        </fieldset>
+
+        <fieldset>
+            <input placeholder="Your location" type="text" tabindex="2" required formControlName="location" [(ngModel)]="aboutUsObj.location">
+            <mat-error *ngIf="UpdateForm.controls['location'].hasError('required')">
+                phonenumber is <strong>required</strong>
+              </mat-error>
+          </fieldset>
+        
+        <fieldset>
+          <li>
+            <input type="file" #file placeholder="Choose Image" 
+            formControlName="image"  
+            [(ngModel)]="aboutUsObj.image" (change)="uploadImage(file.files)" (change)="uploadImage(file.files)"
+            style="display: none;">
+            <button (click)="file.click()" class="btnm ">Upload Image</button>
+   
+        </li>    
+
+        
+        </fieldset>
+        <fieldset>
+          <button name="submit"  (click)="update()" type="submit"  id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+      </form>
+ 
+
+
+
+     <!-- <form [formGroup]="UpdateForm">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the description</mat-label>
+                    <input type="text" matInput formControlName="description" [(ngModel)]="aboutUsObj.description">
+                </mat-form-field>
+            </li>
+            <li>
+                <input type="file" #file placeholder="Choose Image" formControlName="image"  
+                    [(ngModel)]="aboutUsObj.image" (change)="uploadImage(file.files)" style="display: none;">
+                <button (click)="file.click()" class="imageBtn">Upload Image</button>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the email</mat-label>
+                    <input type="text" matInput formControlName="email" [(ngModel)]="aboutUsObj.email">
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the category name</mat-label>
+                    <input type="text" matInput formControlName="phonenumber" [(ngModel)]="aboutUsObj.phonenumber">
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the location
+                    </mat-label>
+                    <input type="text" matInput formControlName="location" [(ngModel)]="aboutUsObj.location">
+                </mat-form-field>
+            </li>
+        </ul>
+        <button class="button" (click)="update()">Update</button>
+
+    </form>  -->
+
+
+
+</ng-template>
+
+<ng-template #callDeleteDailog>
+
+    <mat-dialog-actions align="end">
+       
+    
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    
+    <span id="mydele">Are you sure you want to delete this item?</span>
+    <div>
+         <button class="button" mat-button mat-dialog-close="no">No</button>
+        <button class="button" mat-button mat-dialog-close="yes">yes</button>
+    </div>
+    </ng-template>

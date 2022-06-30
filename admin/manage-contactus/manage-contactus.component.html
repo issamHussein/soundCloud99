@@ -1,0 +1,44 @@
+<app-dashboared></app-dashboared>
+
+
+<div class="container">
+
+  <div class="container">
+
+    <table class="table table-bordered table-striped">
+      <tr>
+    <th class="text-left">FullName</th>
+    <th class="text-left">email</th>
+    <th class="text-left">Message</th>
+    <th class="text-left">Oprations</th>
+  </tr>
+  <tr>
+      <tr    *ngFor="let obj of contactusService.data"     >
+            <td class="text-left">  {{obj.fullName}}</td>
+            <td class="text-left">  {{obj.email}}</td>
+            <td class="text-left">  {{obj.message}}</td>
+    
+            <td class="text-left">    
+                <button class="button" (click)="openDeleteDailog(obj.contactID)">Delete</button>
+        
+        </td>
+  </tr>
+  
+</table>
+</div>
+
+
+<ng-template #callDeleteDailog>
+
+  <mat-dialog-actions align="end">
+     
+    <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+  </mat-dialog-actions>
+  
+  <span id="mydele">Are you sure you want to delete this item?</span>
+  <div>
+       <button class="button" mat-button mat-dialog-close="no">No</button>
+      <button class="button" mat-button mat-dialog-close="yes">yes</button>
+  </div>
+    </ng-template>
+

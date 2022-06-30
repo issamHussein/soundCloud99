@@ -1,0 +1,113 @@
+
+<mat-dialog-actions align="end">
+
+
+  <img id="cancel" mat-button mat-dialog-close [src]="delete" />
+</mat-dialog-actions>
+
+<mat-dialog-content class="accDialog" >
+
+  <div class="container" >  
+    <form id="contact"  [formGroup]="CreateForm">
+      <fieldset>
+        <input formControlName="accountantName" placeholder="Your name" type="text" tabindex="1" required autofocus>
+        <mat-error *ngIf="CreateForm.controls['accountantName'].hasError('required')">
+          accountantName is <strong>required</strong>
+        </mat-error>
+
+      </fieldset>
+      <fieldset>
+        <input formControlName="salary" placeholder="Your salary" type="number" tabindex="4" required>
+        <mat-error *ngIf="CreateForm.controls['salary'].hasError('required')">
+          salary is <strong>required</strong>
+        </mat-error>
+      </fieldset>
+      <fieldset>
+        <input formControlName="email" placeholder="Your Email Address" type="email" tabindex="2" required>
+        <mat-error *ngIf="CreateForm.controls['email'].hasError('email') && !CreateForm.controls['email'].hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+
+      </fieldset>
+      <fieldset>
+        <input formControlName="password" placeholder="Your password" type="password" tabindex="3" required>
+        <mat-error *ngIf="CreateForm.controls['password'].hasError('minlength') && !CreateForm.controls['password'].hasError('required')">
+          Please enter strong password
+        </mat-error>
+        <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
+          password is <strong>required</strong>
+        </mat-error>
+
+      </fieldset>
+      <fieldset>
+        <li>
+          <input type="file" #file placeholder="Choose Image" 
+          formControlName="image" (change)="uploadImage(file.files)" 
+          style="display: none;">
+          <button (click)="file.click()" class="btn btn-success">Upload Image</button>
+ 
+      </li>    
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" (click)="save()" id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+
+<!-- 
+
+   <form [formGroup]="CreateForm" class="example-form">
+    <ul>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the accountantName </mat-label>
+          <input type="text" matInput formControlName="accountantName" placeholder="accountantName">
+          <mat-error *ngIf="CreateForm.controls['accountantName'].hasError('required')">
+            accountantName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the salary </mat-label>
+          <input type="number" matInput formControlName="salary" placeholder="salary">
+          <mat-error *ngIf="CreateForm.controls['salary'].hasError('required')">
+            salary is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the email </mat-label>
+          <input type="text" matInput formControlName="email" placeholder="email">
+          <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+            email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the password </mat-label>
+          <input type="password" matInput formControlName="password" placeholder="password">
+          <mat-error *ngIf="CreateForm.controls['password'].hasError('required')">
+            password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+      <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Enter the roleID </mat-label>
+          <input type="number" matInput formControlName="roleID" placeholder="email" value="2">
+          <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+            roleID is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </li>
+
+    </ul>
+  </form>  -->
+
+</mat-dialog-content>

@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+
+.container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.2);
+}
+.mid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.head, .mid, .textarea, .end{
+    padding: 15px;
+}
+.face{
+    height: 50px; width: 50px;
+    /* cursor: pointer; */
+    background-color: rgb(214 51 132 / 20%);
+    border-radius: 50%;
+    transition: 0.1s linear;
+}
+/* .face:hover{
+    background-color: var(--bs-cyan);
+    transform: scale(1.2);
+}
+.face.active{
+  background-color: var(--bs-pink);;
+    transform: scale(1.2);
+} */
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading{
+    width: 70%;
+}
+.heading h1{
+    font-size: 25px;
+    border-bottom: 8px solid var(--bs-pink);;
+    font-weight: bolder;
+}
+.close{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.1s linear;
+    padding: 0 10px;
+}
+.close:hover{
+    transform: scale(1.2);
+}
+.s{
+    width: 1.5px; height: 20px;
+    background-color: black;
+    border-radius: 100px;
+}
+.s1{
+    transform: translateX(1.5px) rotate(45deg);
+}
+.s2{
+    transform: rotate(-45deg);
+}
+.textarea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.textarea p{
+    font-size: 18px;
+}
+textarea{
+    outline: none;
+    resize: none;
+    height: 100px;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+}
+.end{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btn{
+    width: 150px;
+    height: 35px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 15px;
+}
+.sub{
+    background: var(--bs-pink);;
+    border: 1px solid transparent;
+    transition: 0.1s linear;
+}
+.skp{
+    transition: 0.1s linear;
+    border: 1px solid black;
+}
+.skp:hover{
+    background-color: var(--bs-cyan);
+    color: white;
+}
+.sub:hover{
+    background-color: var(--bs-cyan);
+    border: 1px solid var(--bs-cyan);
+    color: white;
+}
+
+
+#cancel {
+    width: 13px;
+    height: 15px;
+    margin-top: -51px;
+
+}

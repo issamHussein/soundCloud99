@@ -1,0 +1,160 @@
+
+<app-dashboared></app-dashboared>
+      
+
+<button class="btn" (click)="create()">Create </button>
+<div class="container">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+
+    <tr>
+        <th class="text-left"> Admin name </th>
+        <th class="text-left"> email </th>
+        <th class="text-left"> password </th>
+        <th class="text-left"> image </th>
+        <th class="text-left"> Oprations </th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+
+    <tr *ngFor="let obj of adminService.data">
+        <td class="text-left">{{obj.adminName}}</td>
+        <td class="text-left">{{obj.email}}</td>
+        <td class="text-left">{{obj.password}}</td>
+        <td class="text-left"><img src="../../../assets/img/{{obj.image}}" style="height: 50px;width:50px;"></td>
+        <td class="text-left">
+            <button  class="button" (click)="openUpdateDailog(obj.adminID,
+            obj.adminName,obj.email,obj.password,obj.roleID, obj.image
+        )">Update</button>
+
+            <button  class="button" (click)="openDeleteDailog(obj.adminID)">Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<ng-template #callUpdateDailog>
+
+
+
+    <mat-dialog-actions align="end">
+     
+
+        <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+
+
+
+    <!-- <form [formGroup]="UpdateForm">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the Admin Name</mat-label>
+                    <input type="text" matInput formControlName="adminName" [(ngModel)]="adminObj.adminName">
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the email</mat-label>
+                    <input type="text" matInput formControlName="email" [(ngModel)]="adminObj.email">
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the password</mat-label>
+                    <input type="password" matInput formControlName="password" [(ngModel)]="adminObj.password">
+                </mat-form-field>
+            </li>
+            <li>
+
+                <input type="file" #file placeholder="Choose Image" formControlName="image"
+                    [(ngModel)]="adminObj.image"  (change)="uploadImage(file.files)" style="display: none;">
+                <button (click)="file.click()" class="imageBtn">Upload Image</button>
+
+            </li>
+        </ul>
+        <button class="button" id="updmy" (click)="update()">Update</button>
+    </form> -->
+
+
+
+
+    <div class="containerDialog" >  
+        <form id="contact"  [formGroup]="UpdateForm">
+          <fieldset>
+            <input formControlName="adminName" placeholder="Enter the AdminName" type="text" tabindex="1" required autofocus [(ngModel)]="adminObj.adminName">
+            <mat-error *ngIf="UpdateForm.controls['adminName'].hasError('required')">
+              AdminName is <strong>required</strong>
+            </mat-error>
+        </fieldset>
+      
+      
+      
+      
+          <fieldset>
+            <input formControlName="email" placeholder="Your Email Address" type="email" tabindex="2" required [(ngModel)]="adminObj.email">
+            <mat-error *ngIf="UpdateForm.controls['email'].hasError('email') && !UpdateForm.controls['email'].hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+      
+          </fieldset>
+      
+      
+      
+      
+      
+      
+      
+      
+          <fieldset>
+            <input formControlName="password" placeholder="Your password" type="password" tabindex="3" required [(ngModel)]="adminObj.password">
+            <mat-error *ngIf="UpdateForm.controls['password'].hasError('minlength') && !UpdateForm.controls['password'].hasError('required')">
+              Please enter strong password
+            </mat-error>
+            <mat-error *ngIf="UpdateForm.controls['password'].hasError('required')">
+              password is <strong>required</strong>
+            </mat-error>
+      
+          </fieldset>
+      
+      
+          <fieldset>
+            <li>
+              <input type="file" #file placeholder="Choose Image" 
+              formControlName="image" (change)="uploadImage(file.files)" 
+              style="display: none;" [(ngModel)]="adminObj.password">
+              <button (click)="file.click()" class="btnm btn-success">Upload image</button>
+      
+          </li>    
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" (click)="update()" id="contact-submit" data-submit="...Sending">Submit</button>
+          </fieldset>
+        </form>
+      </div> 
+      
+      
+    
+</ng-template>
+
+
+<ng-template #callDeleteDailog  id="deletedailog">
+
+
+    <mat-dialog-actions align="end">
+       
+    
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    
+    <span id="mydele">Are you sure you want to delete this item?</span>
+    <div>
+         <button class="button" mat-button mat-dialog-close="no">No</button>
+        <button class="button" mat-button mat-dialog-close="yes">yes</button>
+    </div>
+    </ng-template>

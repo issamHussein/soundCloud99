@@ -1,0 +1,125 @@
+
+<!-- <mat-dialog-content >
+
+    
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+    
+         
+                        <form class="login100-form validate-form" method="POST" action="#">
+                            <span class="login100-form-logo">
+                                C
+                            </span>
+    
+                            <span class="login100-form-title p-b-34 p-t-27">
+                                Log in
+                            </span>
+                            <div class="wrap-input100 validate-input" data-validate="Enter username" class="inp">
+                                <mat-form-field class="inp">
+                                    <mat-label class="inp">Enter your Email</mat-label>
+                                    <input matInput placeholder="pat@example.com" [formControl]="email">
+                                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')" class="inp">
+                                        Please enter a valid email address
+                                    </mat-error>
+                                    <mat-error *ngIf="email.hasError('required')">
+                                        Email is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                            </div>
+                            <div class="inp" data-validate="Enter password">
+                                <mat-form-field class="inp">
+                                    <mat-label class="inp">Enter your Password</mat-label>
+                                    <input matInput placeholder="example123"  [formControl]="password">
+                                 
+                                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                                </mat-form-field>
+                            </div>
+    
+    
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                   
+                                <label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>
+                            </div>
+    
+    
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn" (click)="submit()" >
+                                    Login
+                                </button>
+                            </div>
+                            <div class="text-center p-t-90">
+                                <span class="txt1" (click)="goToRegister()">
+                                    Don't have acount?
+                                    <h5 style="color:#ed3c0d;">Register</h5>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+          
+    
+    
+    </mat-dialog-content>
+    
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+      </mat-dialog-actions>
+      
+    
+    
+    
+    
+     -->
+
+
+
+     <section class="login">
+      <div class="container">
+        <h3 class="title">Login</h3>
+    
+       
+        <p class="separator"><span></span></p>
+    
+        <form>    
+
+          <div class="form-group">
+            <label for="Email"></label>
+
+            <input type="Email" id="Email" matInput placeholder="pat@example.com" [formControl]="email">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')" class="inp">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+
+
+
+
+
+
+
+          </div>
+    
+          <div class="form-group">
+            <label for="password"></label>
+            <input matInput placeholder="example123"  type="password" id="password" [formControl]="password">
+
+
+
+          </div>
+    
+          <button type="submit" (click)="submit()" >
+            Login
+        </button>
+</form>
+      </div>
+    </section>
+
+
+
+
+

@@ -1,0 +1,114 @@
+/*******************************/
+/*********** Team CSS **********/
+/*******************************/
+
+h2{
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: -27px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+  margin-right: 442px;
+  margin-left: 464px;
+  margin-top: -64px;
+ 
+}
+
+
+.team {
+  
+    position: relative;
+    
+    padding: 45px 0 15px 0;
+    margin-left: -86px !important;
+  }
+  
+  .team .team-item {
+    position: relative;
+    margin-bottom: 75px;
+   
+  }
+  
+  .team .team-img {
+    position: relative;
+   
+  }
+  
+  .team .team-img img {
+    width: 100%;
+    
+  }
+  
+  .team .team-text {
+    position: absolute;
+    width: calc(100% - 30px);
+    /* height: 96px; */
+    bottom: -46px;
+    left: 15px;
+    padding: 25px 15px;
+    text-align: center;
+    background: rgba(256, 256, 256, .9);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+    transition: .3s;
+    overflow: hidden;
+  }
+  
+  .team .team-text h2 {
+    color: #0a0a0a;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-right: 100px;
+  }
+  
+  .team .team-text p {
+    margin-bottom: 20px;
+    color:  #007aff;
+  }
+  
+  .team .team-social {
+    position: relative;
+    font-size: 0;
+  }
+  
+  .team .team-social a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 0 3px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 14px;
+    color:  #007aff;
+    border: 2px solid #ed3c0d;
+    transition: .3s;
+  }
+  
+  .team .team-social a:hover {
+    color:  #007aff;
+    border-color:  #007aff;
+  }
+  
+  .team .team-item:hover .team-text {
+    height: 160px;
+  }
+  
+
+  .containerBackground {
+       background: #e596c21c 0 0 no-repeat padding-box;
+    height: 600px !important;
+    margin-right: 93px;
+    margin-left: 93px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    
+}
+  
+  
+  .container{
+    margin-left: 3px;
+
+  }

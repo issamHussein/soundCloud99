@@ -1,0 +1,91 @@
+
+<app-header></app-header>
+<br>
+<br>
+
+
+<!-- <input type="text" [value] ="categoryName">
+<button >Search</button> -->
+          
+
+<a class="catBtn" mat-button (click)="GetByUserName()"  cdkFocusInitial> <span class="input-group-text border-0" id="search-addon">
+  <i class="fa fa-search"></i>
+</span>  </a>
+<form class="user-form" id="form">
+  <input type="text" id="search" placeholder="Search" [formControl]="searchUser">
+</form>
+<br>
+<br>
+
+<section class="container">
+    <div class="row ">
+
+      <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let obj of userService.user"  >
+        <article class="material-card Orange">
+          <h2>
+            <strong>
+              <i class="fa fa-fw fa-star"></i>
+             {{obj.userName}}
+            </strong>
+          </h2>
+          <div class="mc-content">
+            <a (click)="getSounds(obj.userID)">
+
+            <div class="img-container">
+              <img class="img-responsive"  style= height:100%   src="../../../assets/img/{{obj.image}}" width="100%">
+            </div>
+            </a>
+            <div class="mc-description">
+              He has won two Academy Awards, for his roles in the mystery drama Mystic River (2003) and the biopic Milk
+              (2008). Penn began his acting career in television with a brief appearance in a 1974 episode of Little House
+              on the Prairie ...
+            </div>
+          </div>
+          <div class="mc-footer">
+       
+          </div>
+        </article>
+      </div>
+
+
+      
+    </div>
+  </section>
+  
+  
+  <style>
+    @keyframes octocat-wave {
+  
+      0%,
+      100% {
+        transform: rotate(0)
+      }
+  
+      20%,
+      60% {
+        transform: rotate(-25deg)
+      }
+  
+      40%,
+      80% {
+        transform: rotate(10deg)
+      }
+    }
+  
+    @media (max-width:500px) {
+      .github-corner:hover .octo-arm {
+        animation: none
+      }
+  
+      .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+  </style> 
+  <app-footer></app-footer>
+  
+  
+  
+  
+  
+  
