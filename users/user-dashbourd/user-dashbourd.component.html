@@ -1,0 +1,196 @@
+
+  <body>
+
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+          <a class="sidebar-brand brand-logo" style="cursor: pointer;" href="index.html"><img (click)="goToHome()" [src]="logo2" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+  
+  
+  
+          <li class="nav-item nav-profile" *ngFor="let obj of userService.user">
+            <a (click)="openUpdateDailog(obj.userID,
+            obj.userName,obj.email,obj.password,obj.phoneNumber,obj.roleID, obj.image)" class="nav-link">
+  
+  
+            <div class="nav-profile-image">
+              <img src="../../../assets/img/{{obj.image}}" alt="User picture" style=" width: 35px ;
+              height: 35px ;" />
+              <span class="login-status online"></span>
+            </div>
+  
+         
+            
+            <div class="nav-profile-text d-flex flex-column pr-3" id="liAdmin">
+              <span class="font-weight-medium mb-2">{{obj.userName}}</span>
+                  <span class="font-weight-normal">{{obj.email}}</span>
+                </div>
+                <span class="badge badge-danger text-white ml-3 rounded"></span>
+              </a>
+            </li>
+    
+    
+            
+            <hr>
+    
+
+      
+
+
+  <div (click)="manageSound(obj.userID)"  class="report dropdown" *ngFor="let obj of userService.user" >
+    <button class="dropbtn">
+      <i ></i>
+      <span  >manage sounds</span>
+    </button>
+  </div>
+
+  <div (click)="SoundDownloadedByTheUser(obj.userID)" class="report dropdown" *ngFor="let obj of userService.user" >
+    <button class="dropbtn">
+      <i ></i>
+      <span  >My Purchases</span>
+    </button>
+  </div>
+
+
+  <div (click)="userReport(obj.userID) " class="report dropdown" *ngFor="let obj of userService.user">
+    <button class="dropbtn">
+      <i ></i>
+      <span  >reports</span>
+    </button>
+  </div>
+
+
+<!-- 
+  <div class="report dropdown">
+
+    <button class="dropbtn">
+      <i ></i>
+      <span >reports</span>
+    </button>
+  </div> -->
+</ul>
+</nav>
+
+   
+<div class="container-fluid page-body-wrapper">
+
+  <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+    <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+      <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img
+          src="assets/images/logo-mini.svg" alt="logo" /></a>
+      <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+        <i class="mdi mdi-menu"></i>
+      </button>
+      <ul class="navbar-nav">
+      </ul>
+      <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+        <li class="nav-item nav-profile dropdown border-0">
+
+          <a class="nav-link " id="profileDropdown" style="cursor:pointer"    (click)="logout()" data-toggle="dropdown">
+            <span class="profile-name">logout</span>
+          </a>
+
+          <hr>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- main-panel ends -->
+</div>
+</div>
+
+</body>
+
+  <!-- main-panel ends -->
+  
+  
+  
+  
+  
+    <ng-template #callUpdateDailog>
+      <mat-dialog-actions align="end">
+     
+
+        <img  id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+      <form [formGroup]="UpdateForm">
+  
+        <div class="container bootstrap snippets bootdey">
+          <h1 class="text-primary">Edit Profile</h1>
+          <hr>
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="../../../assets/img/{{user.image}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                <input type="file" class="form-control" #file formControlName="image" [(ngModel)]="user.image"
+                  (change)="uploadImage(file.files)" style="display: none;">
+                <button (click)="file.click()" class="btn btn-success">Upload new Image</button>
+              </div>
+            </div>
+  
+  
+  
+  
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+  
+              <h3>Personal info</h3>
+  
+              <form class="form-horizontal" role="form" [formGroup]="UpdateForm">
+  
+  
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">userName:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" formControlName="userName" [(ngModel)]="user.userName">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">email:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" formControlName="email" [(ngModel)]="user.email">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">password:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="password" formControlName="password" [(ngModel)]="user.password">
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">phoneNumber:</label>
+                  <div class="col-lg-8">
+                    <input class="form-control" type="text" formControlName="phoneNumber" [(ngModel)]="user.phoneNumber">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <hr>
+  
+  
+        <button (click)="update()">save</button>
+  
+  
+      </form>
+    </ng-template>
+
+
+
+
+
+
+
+    
+    
+    
+    

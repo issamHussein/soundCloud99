@@ -1,0 +1,46 @@
+<app-user-dashbourd></app-user-dashbourd>
+
+    
+    <!-- <a class="catBtn" mat-button (click)="GetBySOUNDName()"  cdkFocusInitial> <span class="input-group-text border-0" id="search-addon">
+        <i class="fa fa-search"></i>
+      </span>  </a>
+      <form class="user-form" id="form">
+        <input type="text" id="search" placeholder="Search" [formControl]="searchSound">
+      </form>
+      <br>
+      <br> -->
+
+
+
+
+  <table class="table-fill">
+    <thead>
+
+    <tr>
+        <th class="text-left"> sound name </th>
+        <th class="text-left"> date of download </th>
+        <th class="text-left">Image</th>
+        <th class="text-left">songs</th>
+    </tr>
+</thead>
+<tbody class="table-hover">
+
+    <tr *ngFor="let obj of soundService.SoundDownloadedByTheUser">
+        <td class="text-left">{{obj.soundName}}</td>
+        <td class="text-left">{{obj.dateofdownload| date:'mediumDate'}}</td>
+        <td class="text-left"><img src="../../../assets/img/{{obj.image}}" style="height: 50px;width:50px;"></td>
+        <td class="text-left"> 
+            <audio controls id="myAudio">
+                <source src="../../../assets/songs/{{obj.song}}" type="audio/mp3">
+              </audio>
+        </td>
+       
+
+    </tr>
+</tbody>
+
+</table>
+
+
+
+

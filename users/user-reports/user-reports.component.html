@@ -1,0 +1,86 @@
+
+ <app-user-dashbourd></app-user-dashbourd>
+ <div class="body">
+   <form [formGroup]="CreateForm" class="example-form">
+     <ul id="body">
+         <li>
+ 
+ 
+             <mat-form-field class="example-full-width" appearance="fill">
+                 <mat-label>Date From </mat-label>
+                 <input type="date" matInput formControlName="dateFrom" placeholder="dateFrom">
+                 <mat-error *ngIf="CreateForm.controls['dateFrom'].hasError('required')">
+                     dateFrom is <strong>required</strong>
+                 </mat-error>
+             </mat-form-field>
+         </li>
+         <li>
+ 
+ 
+             <mat-form-field class="example-full-width" appearance="fill">
+                 <mat-label>dateTo </mat-label>
+                 <input type="date" matInput formControlName="dateTo" placeholder="dateTo">
+                 <mat-error *ngIf="CreateForm.controls['dateTo'].hasError('required')">
+                     dateTo is <strong>required</strong>
+                 </mat-error>
+             </mat-form-field>
+         </li>
+     </ul>
+ </form>
+     <button class="searchbtn"  mat-button [disabled]="!CreateForm.valid" [mat-dialog-close]="true"(click)="search(userService.oneUser.amtOfSounds)"  cdkFocusInitial>search</button>
+ <div class="bodytable">
+     <table class="table-fill">
+         <thead>
+     
+         <tr>
+             <th class="text-left"> Sound Name </th>
+             <th class="text-left">Price </th>
+             <th class="text-left"> Payment Date </th>
+         </tr>
+     </thead>
+ 
+     <tbody class="table-hover">
+ 
+     <tr *ngFor="let item of userService.profit">
+         <td class="text-left">{{item.soundName}}</td>
+         <td class="text-left">{{item.price}}$</td>
+         <td class="text-left">{{item.dateOfDownload}}</td>
+        
+        
+ 
+     </tr>
+ </tbody>
+ 
+ </table>
+</div>
+
+ <br><br>
+ <div class="bodytable2">
+ <table class="table-fill">
+     <thead>
+ 
+     <tr>
+         <th class="text-left"> Total Profit </th>
+ 
+     </tr>
+ </thead>
+ <tbody class="table-hover">
+ 
+     <tr *ngFor="let item of userService.totalProfit">
+         <td class="text-left">{{item.sumPrice}}</td>
+        
+ 
+     </tr>
+ </tbody>
+ </table>
+ </div>
+ 
+ <br>
+ <br>
+ <br>
+     <button id="btn" class="button" (click)="exportExcel()">Export</button> 
+     <br>
+     <br>
+     <br>
+     
+ </div>

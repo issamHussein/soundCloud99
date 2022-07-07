@@ -1,0 +1,168 @@
+<mat-dialog-content     >
+    <mat-dialog-actions align="end">
+       
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+
+    
+    <form  [formGroup]="CreateForm" id="contact"  method="POST" action="#">
+        
+        <span class="login100-form-title p-b-34 p-t-27">
+            
+            <h2 style="      margin-top: -64px;
+            margin-left: 111px;" class="mymona">Register</h2>
+            
+        </span>
+        
+
+
+        <fieldset>
+            <input formControlName="userName" placeholder="user name" type="text" tabindex="1" required autofocus>
+            <mat-error *ngIf="CreateForm.controls['userName'].hasError('required')">
+                userName is <strong>required</strong>
+            </mat-error>
+        
+        </fieldset>
+
+<!-- 
+        <div >
+            <mat-form-field class="inp">
+                <mat-label class="inp">Enter your userName</mat-label>
+                <input type="text" matInput formControlName="userName" placeholder="userName">
+                <mat-error *ngIf="CreateForm.controls['userName'].hasError('required')">
+                    userName is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+        </div> -->
+
+        <fieldset>
+            <input  formControlName="email" placeholder="your email" type="email" tabindex="1" required autofocus>
+            <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        
+        </fieldset>
+
+    
+
+     <fieldset>
+            <input  formControlName="password" placeholder="example123" type="password" tabindex="2" required>
+            <mat-error  type="password"   *ngIf="CreateForm.controls['password'].hasError('required')">
+                password is <strong>required</strong>
+            </mat-error>
+            
+            </fieldset>  
+
+
+
+            <!-- <div>
+                <mat-form-field class="inp">
+                    <mat-label class="inp">Enter your phoneNumber</mat-label>
+                    <input matInput placeholder="example123" formControlName="phoneNumber">
+                    <mat-error  type="text"   *ngIf="CreateForm.controls['phoneNumber'].hasError('required')">
+                        phoneNumber is <strong>required</strong>
+                    </mat-error>
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </mat-form-field>
+            </div> -->
+
+
+
+
+            <fieldset>
+                <input  formControlName="phoneNumber" placeholder="phoneNumber"  type="text" tabindex="3" required>
+              
+                </fieldset>  
+
+                <fieldset>
+                <input type="file" #file placeholder="Choose song" formControlName="image"
+                (change)="uploadImage(file.files)"
+                 style="display: none;">
+               <button  style="background-color: #13a0f3;" (click)="file.click()" class="btn btn-success">Upload Image</button>
+            </fieldset>  
+                       
+            <fieldset>
+                <button [mat-dialog-close]="true" class="login100-form-btn" (click)="submit()" cdkFocusInitial>
+                    Register
+                </button>
+              </fieldset>
+
+
+            
+
+        <!-- <div >
+            <mat-form-field class="inp">
+                <mat-label class="inp">Enter your Email</mat-label>
+                <input   type="email"   matInput placeholder="pat@example.com" formControlName="email">
+                <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+        </div> -->
+        <!-- <div>
+            <mat-form-field class="inp">
+                <mat-label class="inp">Enter your Password</mat-label>
+                <input matInput placeholder="example123" formControlName="password">
+                <mat-error  type="password"   *ngIf="CreateForm.controls['password'].hasError('required')">
+                    password is <strong>required</strong>
+                </mat-error>
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+            </mat-form-field>
+        </div> -->
+
+
+       
+
+        <div class="text-center p-t-90">
+            <span class="txt1" (click)="goToLogin()">
+              Already have acount?
+                <h5 style="color: rgb(0 0 0 / 54%);">Login</h5>
+            </span>
+        </div>
+    </form>
+
+
+
+</mat-dialog-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

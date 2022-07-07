@@ -1,0 +1,77 @@
+<mat-dialog-content >
+    <mat-dialog-actions align="end">
+        <img id="cancel" mat-button mat-dialog-close [src]="delete"/>
+    </mat-dialog-actions>
+    <div class="container">  
+        <form id="contact"  method="POST" action="#" >
+        <span class="login100-form-title p-b-34 p-t-27">
+            <h2 style="    margin-top: -45px;
+          margin-left: 111px;" class="mymona">Login</h2>
+        </span>
+        
+        <fieldset>
+            <input [formControl]="email" placeholder="ex@gmail.com" type="email" tabindex="1" required autofocus>
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')" class="inp">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+      </fieldset>
+      <fieldset>
+        <input  [formControl]="password" placeholder="example123" type="password" tabindex="3" required>
+        <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')"
+                    class="inp">
+                    Please enter a strong password
+                </mat-error>
+                <mat-error *ngIf="password.hasError('required')">
+                    password is <strong>required</strong>
+                </mat-error>
+  
+      </fieldset>  
+      
+      <br>
+      <br>
+    
+
+        <fieldset>
+            <button style="    margin-top: -45px;
+           margin-left: 61px;" class="login100-form-btn" (click)="submit()"
+            [disabled]="!email.valid || !password.valid">
+            Login
+        </button>
+          </fieldset>
+
+        <div > 
+        </div>
+   
+
+<a (click)="goToRegister()">
+        <div class="text-center p-t-90">
+            <span class="txt1" >
+                Don't have acount?
+                <h5 style="color: rgb(0 0 0 / 54%);">Register</h5>
+            </span>
+        </div>
+    </a>
+    </form> 
+
+      </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mat-dialog-content>
+
